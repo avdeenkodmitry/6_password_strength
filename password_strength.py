@@ -29,8 +29,8 @@ def get_result_of_password_length_test(password):
         return 3
 
 def get_result_of_popular_password_test(password):
-    f = open('popular_password.txt')
-    for line in f:
+    file_with_popular_password = open('popular_password.txt')
+    for line in file_with_popular_password:
         if line == password:
             return True
     return False
@@ -40,7 +40,7 @@ def get_password_strength(password):
     password_rating = 1
     password_rating += get_result_of_case_sensitivity_test(password) + get_result_of_digits_test(password) + get_result_of_special_symbols_test(password) + get_result_of_password_length_test(password)
     if (not get_result_of_password_length_test(password)) or get_result_of_popular_password_test(password):
-        rating = 1
+        password_rating = 1
     return password_rating
     
     

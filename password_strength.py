@@ -1,5 +1,7 @@
 import re
 import getpass
+import string
+special_symbols = '@#\$!\.\*\?\/<\\>'
 
 
 def get_result_of_case_sensitivity_test(password):
@@ -9,19 +11,20 @@ def get_result_of_case_sensitivity_test(password):
 
 
 def get_result_of_digits_test(password):
-    if re.search('[0-9]', password):
+    if re.search('[' + string.digits + ']', password):
         return 2
     return 0
 
 
 def get_result_of_special_symbols_test(password):
-    if re.search('[@ # \$ ! \. \* \? \/ <  \\ >]', password):
+    if re.search('[' + special_symbols + ']', password):
         return 2
     return 0
 
 
 def get_result_of_correct_password_test(password):
-    return (not re.search('[^ a-zA-Z0-9_@#\$!\.\*\?\/<\\>]', password))
+    return (not re.search('[^' + string.ascii_letters +
+                          special_symbols + string.digits + ']', password))
 
 
 def get_result_of_password_length_test(password):

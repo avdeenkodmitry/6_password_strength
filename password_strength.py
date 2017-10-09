@@ -41,7 +41,7 @@ def get_result_of_password_length_test(password):
 
 def get_result_of_popular_password_test(password):
     with open('popular_password.txt', 'r') as file_with_popular_password:
-        return (password in file_with_popular_password)
+        return password in file_with_popular_password
 
 
 def get_password_strength(password):

@@ -23,8 +23,8 @@ def get_result_of_special_symbols_test(password):
 
 
 def get_result_of_correct_password_test(password):
-    return (not re.search('[^' + string.ascii_letters +
-                          special_symbols + string.digits + ']', password))
+    return not re.search('[^' + string.ascii_letters +
+                         special_symbols + string.digits + ']', password)
 
 
 def get_result_of_password_length_test(password):
